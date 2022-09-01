@@ -1,0 +1,87 @@
+{
+    "name": "webdevstudios/[sitedomain]",
+    "description": "[sitedomain].com",
+    "type": "project",
+    "authors": [
+      {
+        "name": "WebDevStudios",
+        "email": "contact@webdevstudios.com"
+      }
+    ],
+    "repositories": {
+      "wppackagist": {
+        "type": "composer",
+        "url": "https://wpackagist.org/"
+      },
+      "satispress": {
+        "type": "composer",
+        "url": "https://satispresssitedomain.com/satispress/"
+      },
+      "webdevstudios": {
+        "type": "composer",
+        "url": "https://packages.wdslab.com"
+      },
+      "client-theme{
+        "type": "package",
+        "package": {
+          "name": "webdevstudios/project-[sitedomain]",
+          "type": "wordpress-theme",
+          "version": "dev-master",
+          "url": "https://github.com/webdevstudios/project-[sitedomain].git",  
+        }
+      },
+      "client-plugin{
+        "type": "package",
+        "package": {
+          "name": "webdevstudios/project-[sitedomain]-plugin",
+          "type": "wordpress-plugin",
+          "version": "dev-master",
+          "url": "https://github.com/webdevstudios/project-[sitedomain]-plugin.git",  
+        }
+      },
+      "client-mu-plugin{
+        "type": "package",
+        "package": {
+          "name": "webdevstudios/project-[sitedomain]-mu-plugin",
+          "type": "wordpress-muplugin",
+          "version": "dev-master",
+          "url": "https://github.com/webdevstudios/project-[sitedomain]-mu-plugin.git",  
+        }
+      }
+    },
+    "extra": {
+      "installer-paths": {
+        "wp-content/plugins/{$name}/": [
+          "type:wordpress-plugin"
+        ],
+        "wp-content/mu-plugins/{$name}/": [
+          "type:wordpress-muplugin"
+        ],
+        "wp-content/themes/{$name}/": [
+          "type:wordpress-theme"
+        ]
+      },
+      "wordpress-install-dir": "wp"
+    },
+    "scripts": {
+      "post-autoload-dump": "webdevstudios\\MUAutoload\\Installer::install"
+    },
+    
+    "require": {
+      "johnpbloch/wordpress": "6.0.1",
+      "webdevstudios/mu-autoload": "^1.0",
+      "wpackagist-plugin/example-public-plugin":"=1.3.0",
+      "[sitedomain]/example-satispress-managed-plugin": "15.0",
+      "webdevstudios/project-[sitedomain]": "dev-master",
+      "webdevstudios/project-[sitedomain]-plugin": "dev-master",
+      "webdevstudios/project-[sitedomain]-mu-plugin": "dev-master"
+    },
+    "require-dev": {
+      "webdevstudios/sso-addon": "~1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
